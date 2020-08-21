@@ -1,0 +1,357 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    line-height: 30px;
+}
+
+/* navStylling */
+
+.nav{
+    margin: 0;
+    background-color: rgba(219, 219, 219, 0);
+    transition: background-color,position 1s,1.5s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    animation: slide 2.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.brand{
+    float: left;
+    margin: 20px 35px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(22, 8, 48);
+}
+
+.menu{
+    display: inline;
+}
+
+.menu > ul{
+    list-style: none;
+    display: flex;
+    float: right;
+}
+
+.menu > ul > li{
+    margin: 20px 35px;
+}
+
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 10pt;
+    color: rgb(22, 8, 48);
+    transition: color,font-size,font-weight .5s,.5s,.5s ease-in-out;
+}
+
+a:hover{
+    color: seagreen;
+}
+/* smallScreenOptmization */
+@media(max-width: 650px){
+    .menu{
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu > ul{
+        float: none;
+    }
+
+    .menu > ul > li{
+        margin: 10px 20px 10px 20px;
+    }
+
+    .brand{
+    /*  float: none;
+        font-size: 18pt;
+        margin: 10px 35px 5px 35px;
+        text-align: center;    */
+        display: none;
+    }
+    
+    .nav{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+/* navActiveSection */
+
+.active{
+    font-size: 12pt;
+    font-weight: 600;
+}
+
+/* pageSecStylling */
+
+section{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* home */
+
+#home{
+    background-color:rgba(219, 219, 219, 0.8);
+    background-image:url('/images/pattern.jpg');
+    background-size: 80%;
+    background-repeat: repeat;
+    background-blend-mode: screen;
+}
+
+#home > h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 29pt;
+    animation: fade 2s;
+}
+
+#home > h3{
+    text-align: center;
+    font-weight: 600;
+    animation: fade 2.5s;
+}
+
+#home > button{
+    background-color: rgb(27, 24, 41);
+    color: rgba(219, 219, 219);
+    border-radius: 5%;
+    padding: 5px;
+    border: transparent;
+    outline: transparent;
+    cursor: pointer;
+    font-size: 10pt;
+    font-weight: 400;
+    margin-top: 20px;
+    animation: fade 3s;
+    transition: color, background-color, box-shadow .5s, 1s, .5s ease-in-out;
+}
+
+#home > button:hover{
+    background-color: rgba(219, 219, 219, 1);
+    color: rgba(0, 0, 0, .4);
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, .2);
+}
+
+#home > img{
+    margin-bottom: 40px;
+    width: 60%;
+    animation: fade 1.5s;
+}
+
+
+
+/* about */
+
+#about{
+    background-color: rgb(27, 24, 41);
+    color: rgba(219, 219, 219, 1);
+    background-image:url('/images/webBG.jpg');
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+#about > h1{
+    text-transform: uppercase;
+    font-size: 46pt;
+}
+
+#about > p{
+    margin-top: 25px;
+    width: 40%;
+}
+
+#about > h3{
+    text-transform: capitalize;
+    margin-top: 80px;
+}
+
+.gallary{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.gallary > img{
+    min-width: 3%;
+    width: 5%;
+    margin: 0 5%;
+}
+
+/* pricing */
+
+#pricing{
+    background-color:rgba(219, 219, 219, 0.8);
+    background-image:url('/images/pattern.jpg');
+    background-size: 80%;
+    background-repeat: repeat;
+    background-blend-mode: screen;
+}
+
+#pricing > h1{
+    text-align: center;
+    font-size: 48pt;
+    line-height: 50px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    width: 250px;
+    height: 30vh;
+    background-color: rgba(219, 219, 219, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 5%;
+    transition: box-shadow 1s ease-in-out;
+    margin: auto 25px;
+}
+
+@media(max-width:1070px){
+    .card{
+        margin-bottom: 25px;
+    }
+}
+
+.card:hover{
+    box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, .2);
+}
+
+.card > h1{
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 20pt;
+}
+
+.card > ul{
+    color: rgb(12, 87, 44);
+    list-style: none;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14pt;
+}
+
+.card > button{
+    background-color: rgb(27, 24, 41);
+    color: rgba(219, 219, 219);
+    border-radius: 5%;
+    padding: 5px;
+    border: transparent;
+    outline: transparent;
+    cursor: pointer;
+    font-size: 10pt;
+    font-weight: 400;
+    transition: color, background-color, .5s, 1s ease-in-out;
+}
+
+.card > button:hover{
+    background-color:seagreen;
+    color: rgba(0, 0, 0);
+}
+
+/* contact */
+
+#contact{
+    background-color: rgb(27, 24, 41);
+    color: rgba(219, 219, 219, 1);
+}
+
+#contact > h1{
+    text-align: center;
+    font-size: 48pt;
+    line-height: 50px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#contact > iframe{
+    width: 80%;
+    height: 60vh;
+    margin: 30px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0,.4);
+}
+
+/* footer */
+
+footer{
+    background-color:rgb(27, 24, 41);
+    color: rgba(219, 219, 219);
+    background-image:url('/images/pattern.jpg');
+    background-size: 35%;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    font-size: 8pt;
+}
+
+/* upButton */
+
+#upBtn{
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+    background-color: rgba(219, 219, 219, 1);
+    color: rgb(22, 8, 48);
+    z-index: 1;
+    outline: none;
+    border-color: transparent;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 12pt;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .4);
+    display: none;
+}
+
+#upBtn:hover{
+    font-size: 14pt;
+    transition: font-size .5s;
+}
+
+/* animations */
+
+@keyframes fade{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes slide{
+    from{
+        
+        top:-60px;
+        opacity: 0;
+    }
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
