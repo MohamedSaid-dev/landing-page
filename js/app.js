@@ -1,43 +1,34 @@
 //sections
-let home = document.getElementById("home");
-let about = document.getElementById("about");
-let pricing = document.getElementById("pricing");
-let contact = document.getElementById("contact");
+let sections = document.querySelectorAll("section");
 //links
-let h_link = document.getElementById("h_link");
-let a_link = document.getElementById("a_link");
-let p_link = document.getElementById("p_link");
-let c_link = document.getElementById("c_link");
-let links = [h_link,a_link,p_link,c_link];
+let linksCon = document.getElementById("linksCon");
+for (let index = 0; index < sections.length; index++) {
+    let link = document.createElement("li");
+    link.innerHTML = sections[index].id;
+    linksCon.appendChild(link);
+}
+let links = document.querySelectorAll("#linksCon > li");
 //active section
 function active () {
-    if(scrollY < home.offsetHeight){
-        links.forEach(
-            element => element.classList.remove("active")
-        );
-        links[0].classList.add("active");
-    }else if(scrollY < about.offsetHeight + about.offsetTop){
-        links.forEach(
-            element => element.classList.remove("active")
-        );
-        links[1].classList.add("active");
-    }else if(scrollY < pricing.offsetHeight + pricing.offsetTop){
-        links.forEach(
-            element => element.classList.remove("active")
-        );
-        links[2].classList.add("active");
-    }else if(scrollY < contact.offsetHeight + contact.offsetTop){
-        links.forEach(
-            element => element.classList.remove("active")
-        );
-        links[3].classList.add("active");
+    for (let index = 0; index < sections.length; index++) {
+        if(sections[index].offsetTop <= scrollY && sections[index].offsetTop + sections[index].offsetHeight > scrollY){
+            links[index].classList.add("active");
+        }else{
+            links[index].classList.remove("active");
+        }
     }
 }
 window.addEventListener('scroll', active);
+//navbar scroll
+for (let index = 0; index < links.length; index++) {
+    links[index].addEventListener('click',function(){
+        window.scrollTo(0, sections[index].offsetTop);
+    })
+}
 //navbar animations
 let navbar = document.getElementsByClassName("nav");
 window.addEventListener('scroll',function () {
-    if(scrollY >= about.offsetTop){
+    if(scrollY >= sections[1].offsetTop){
         navbar[0].style = "background-color: rgba(219, 219, 219, .8); position: fixed;";
     }else{
         navbar[0].style = "background-color: rgba(219, 219, 219, 0); position: absolute"; 
@@ -46,17 +37,17 @@ window.addEventListener('scroll',function () {
 //start today button
 let startBtn = document.getElementById("startBtn");
 startBtn.addEventListener('click',function () {
-    window.scrollTo(0,pricing.offsetTop);
+    window.scrollTo(0,sections[2].offsetTop);
 });
 //back to top button
 let upBtn = document.getElementById("upBtn");
 window.addEventListener('scroll',function () {
-    if(scrollY > about.offsetTop){
+    if(scrollY > sections[1].offsetTop){
         upBtn.style.display = "block";
     }else{
         upBtn.style.display = "none";
     }
-})
+});
 
 upBtn.addEventListener('click',function () {
     window.scrollTo(0,0);
